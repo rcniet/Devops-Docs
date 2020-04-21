@@ -1,33 +1,23 @@
-# create a service for wordpress
-apiVersion: v1
-kind: Service
-metadata:
-  name: wordpress
-  labels:
-    app: wordpress
-spec:
-  ports:
-    - port: 80
-  selector:
-    app: wordpress
-    tier: frontend
-  type: NodePort
-apiVersion: v1
-kind: Service
-metadata:
-  name: wordpress
-  labels:
-    app: wordpress
-spec:
-  ports:
-    - port: 80
-#      nodePort: 30000
-  selector:
-    app: wordpress
-    tier: frontend
-  type: NodePort
+#create a service for wordpress
 
-#apiVersion: apps/v1beta2 # for versions before 1.9.0 use apps/v1beta2
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress
+  labels:
+    app: wordpress
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 32710
+  selector:
+    app: wordpress
+    tier: frontend
+
+---
+#create a wordpress deployment
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -35,10 +25,16 @@ metadata:
   labels:
     app: wordpress
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: wordpress
       tier: frontend
+  template:
+    metadata:
+      labels:
+        app: wordpress
+        tier: frontend
   strategy:
     type: RollingUpdate
   template:

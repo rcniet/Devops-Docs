@@ -1,0 +1,11 @@
+install below package on all kubernetes node,if you are facing below issue when you try to mount nfs in pods through pv and pvc
+#################################################################
+Mounting command: systemd-run
+Mounting arguments: --description=Kubernetes transient mount for /var/lib/kubelet/pods/775fc65e-1023-416d-88cb-8f5e9f910043/volumes/kubernetes.io~nfs/pv01 --scope -- mount -t nfs -o hard,nfsvers=4.1 103.127.31.180:/export/vol1 /var/lib/kubelet/pods/775fc65e-1023-416d-88cb-8f5e9f910043/volumes/kubernetes.io~nfs/pv01
+Output: Running scope as unit run-26368.scope.
+mount: wrong fs type, bad option, bad superblock on 103.127.31.180:/export/vol1,
+       missing codepage or helper program, or other error
+       (for several filesystems (e.g. nfs, cifs) you might
+       need a /sbin/mount.<type> helper program)
+##############################################################
+yum install -y  nfs-utils libnfsidmap

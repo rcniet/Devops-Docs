@@ -13,4 +13,4 @@ spec:
     - nfsvers=4.1
   nfs:
     path: /export/vol1
-    server: 172.31.10.200
+    server: 103.127.31.180
