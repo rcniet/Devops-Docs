@@ -9,3 +9,20 @@ mount: wrong fs type, bad option, bad superblock on 103.127.31.180:/export/vol1,
        need a /sbin/mount.<type> helper program)
 ##############################################################
 yum install -y  nfs-utils libnfsidmap
+
+
+ingress-controllerlink- ######## How to assing label on nodes ######
+
+kubectl label node worker1  disktype=fast
+kubectl get node worker1 --show-labels
+
+kubectl get pods -l environment=production,tier=frontend
+
+check kubectl version
+kubectl version --short
+
+https://haproxy-ingress.github.io/docs/getting-started/
+
+
+
+
