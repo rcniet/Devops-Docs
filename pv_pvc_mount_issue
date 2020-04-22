@@ -1,4 +1,4 @@
-install below package on all kubernetes node,if you are facing below issue when you try to mount nfs in pods through pv and pvc
+install below package on all kubernetes node,if you are facing below issue when you trying to mount nfs in pods through pv and pvc
 #################################################################
 Mounting command: systemd-run
 Mounting arguments: --description=Kubernetes transient mount for /var/lib/kubelet/pods/775fc65e-1023-416d-88cb-8f5e9f910043/volumes/kubernetes.io~nfs/pv01 --scope -- mount -t nfs -o hard,nfsvers=4.1 103.127.31.180:/export/vol1 /var/lib/kubelet/pods/775fc65e-1023-416d-88cb-8f5e9f910043/volumes/kubernetes.io~nfs/pv01
