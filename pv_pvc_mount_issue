@@ -24,6 +24,8 @@ kubectl version --short
 https://haproxy-ingress.github.io/docs/getting-started/
 
 kubectl explain rs --recursive | less
+kubectl apply -f first.yml --dry-run
+
 
 
 
