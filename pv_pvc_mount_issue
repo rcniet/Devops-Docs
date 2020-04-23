@@ -27,6 +27,9 @@ kubectl explain rs --recursive | less
 kubectl apply -f first.yml --dry-run
 kubectl get secret -o yaml
 
+kubectl get pod --all-namespaces
+
+
 
 
 
