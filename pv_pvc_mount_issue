@@ -29,6 +29,10 @@ kubectl get secret -o yaml
 
 kubectl get pod --all-namespaces
 
+###UPDATE wordpress site_URL in command mode ###
+UPDATE wp_options SET  option_value = 'http://domain_URL' WHERE  option_id = 1 or 2;
+
+
 
 
 
