@@ -33,6 +33,27 @@ kubectl get pod --all-namespaces
 UPDATE wp_options SET  option_value = 'http://domain_URL' WHERE  option_id = 1 or 2;
 
 
+######configure Haproxy outside the cluster ###
+
+stats enable
+
+stats hide-version
+
+stats uri /lbstats
+
+stats realm Haproxy\ Statistics
+
+stats auth user:redhat
+
+frontend http_front
+ bind *:80
+ #status_url /lbstats
+ default_backend http_back
+
+backend http_back
+ balance roundrobin
+ server worker1 node_IP:80
+ server worker2 node_IP:80
 
 
 
